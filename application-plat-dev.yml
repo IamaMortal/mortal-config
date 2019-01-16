@@ -1,18 +1,12 @@
 server:
-  port: 4399
+  port: 8001
+spring:
+  application:
+    name: mortal-provider
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:7001/eureka
+     defaultZone: http://localhost:7001/eureka  #告诉服务提供者要把服务注册到哪儿 #单机环境
+    #defaultZone: http://eureka-7001.com:7001/eureka,http://eureka-7002.com:7002/eureka #集群环境
   instance:
-    prefer-ip-address: true
-spring:
-  application:
-    name: mortal-config-server
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/IamaMortal/mortal-config.git
-          username: IamaMortal
-          password: king@620*quan
+    prefer-ip-address: true #显示客户端真实ip
